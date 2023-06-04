@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: test
+  name: hello
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: test
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: test
+    spec:
+      volumes:
+           - name: event
+             persistentVolumeClaim:
+                  claimName: localclaim
+               
+      containers:
+      - image: nginx
+        name: nginx
+        volumeMounts:
+           - mountPath: "/usr/share/nginx/html"
+             name: event
+
+
+

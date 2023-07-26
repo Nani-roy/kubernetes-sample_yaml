@@ -15,7 +15,8 @@ environment {
                 echo "----------- build complted ----------"
                 }
             }
-    }
+        }
+
     stage('SonarQube analysis') {
     environment {
       scannerHome = tool 'valaxy-sonar-scanner'

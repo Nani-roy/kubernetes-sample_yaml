@@ -12,11 +12,10 @@ environment {
             steps {
                  echo "----------- build started ----------"
                 sh 'mvn clean deploy'                 
-                echo "----------- build complted ----------"}
-
+                echo "----------- build complted ----------"
+                }
             }
     }
-
     stage('SonarQube analysis') {
     environment {
       scannerHome = tool 'valaxy-sonar-scanner'
